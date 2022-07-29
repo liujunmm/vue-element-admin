@@ -20,16 +20,16 @@ const port = process.env.port || process.env.npm_config_port || 9527 // dev port
 
 const proxyConfig = Consts.PROXY_PREFIX
   ? {
-    // change xxx-api/login => mock/login
-    // detail: https://cli.vuejs.org/config/#devserver-proxy
-    [Consts.PROXY_PREFIX]: {
-      target: `${Consts.PROXY_HOST}`,
-      changeOrigin: true,
-      pathRewrite: {
-        [`^${Consts.PROXY_PREFIX}`]: ''
+      // change xxx-api/login => mock/login
+      // detail: https://cli.vuejs.org/config/#devserver-proxy
+      [Consts.PROXY_PREFIX]: {
+        target: `${Consts.PROXY_HOST}`,
+        changeOrigin: true,
+        pathRewrite: {
+          [`^${Consts.PROXY_PREFIX}`]: ''
+        }
       }
     }
-  }
   : null
 
 console.log('代理配置：', proxyConfig)
@@ -58,8 +58,8 @@ module.exports = {
         target: 'http://localhost:8080/',
         changeOrigin: true
       }
-    }
-    // after: require('./mock/mock-server.js')
+    },
+    after: require('./mock/mock-server.js')
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that

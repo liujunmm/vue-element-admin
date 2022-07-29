@@ -1,4 +1,11 @@
-
+/*
+ * @Author: liujun 18316880540@163.com
+ * @Date: 2022-07-16 18:16:27
+ * @LastEditors: liujun 18316880540@163.com
+ * @LastEditTime: 2022-07-29 20:15:28
+ * @FilePath: \vue-element-admin\mock\user.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 const tokens = {
   admin: {
     token: 'admin-token'
@@ -49,7 +56,7 @@ module.exports = [
 
   // get user info
   {
-    url: '/vue-admin-template/user/info\.*',
+    url: '/vue-admin-template/user/info.*',
     type: 'get',
     response: config => {
       const { token } = config.query
@@ -74,7 +81,7 @@ module.exports = [
   {
     url: '/vue-admin-template/user/logout',
     type: 'post',
-    response: _ => {
+    response: () => {
       return {
         code: 20000,
         data: 'success'

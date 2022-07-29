@@ -1,3 +1,11 @@
+/*
+ * @Author: liujun 18316880540@163.com
+ * @Date: 2022-07-16 18:16:27
+ * @LastEditors: liujun 18316880540@163.com
+ * @LastEditTime: 2022-07-29 20:20:32
+ * @FilePath: \vue-element-admin\mock\mock-server.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 const chokidar = require('chokidar')
 const bodyParser = require('body-parser')
 const chalk = require('chalk')
@@ -47,35 +55,39 @@ module.exports = app => {
   // parse app.body
   // https://expressjs.com/en/4x/api.html#req.body
   app.use(bodyParser.json())
-  app.use(bodyParser.urlencoded({
-    extended: true
-  }))
+  app.use(
+    bodyParser.urlencoded({
+      extended: true
+    })
+  )
 
   const mockRoutes = registerRoutes(app)
   var mockRoutesLength = mockRoutes.mockRoutesLength
   var mockStartIndex = mockRoutes.mockStartIndex
 
   // watch files, hot reload mock server
-  chokidar.watch(mockDir, {
-    ignored: /mock-server/,
-    ignoreInitial: true
-  }).on('all', (event, path) => {
-    if (event === 'change' || event === 'add') {
-      try {
-        // remove mock routes stack
-        app._router.stack.splice(mockStartIndex, mockRoutesLength)
+  chokidar
+    .watch(mockDir, {
+      ignored: /mock-server/,
+      ignoreInitial: true
+    })
+    .on('all', (event, path) => {
+      if (event === 'change' || event === 'add') {
+        try {
+          // remove mock routes stack
+          app._router.stack.splice(mockStartIndex, mockRoutesLength)
 
-        // clear routes cache
-        unregisterRoutes()
+          // clear routes cache
+          unregisterRoutes()
 
-        const mockRoutes = registerRoutes(app)
-        mockRoutesLength = mockRoutes.mockRoutesLength
-        mockStartIndex = mockRoutes.mockStartIndex
+          const mockRoutes = registerRoutes(app)
+          mockRoutesLength = mockRoutes.mockRoutesLength
+          mockStartIndex = mockRoutes.mockStartIndex
 
-        console.log(chalk.magentaBright(`\n > Mock Server hot reload success! changed  ${path}`))
-      } catch (error) {
-        console.log(chalk.redBright(error))
+          console.log(chalk.magentaBright(`\n > Mock Server hot reload success! changed  ${path}`))
+        } catch (error) {
+          console.log(chalk.redBright(error))
+        }
       }
-    }
-  })
+    })
 }

@@ -2,7 +2,7 @@
  * @Author: liujun 18316880540@163.com
  * @Date: 2022-07-16 18:16:27
  * @LastEditors: liujun 18316880540@163.com
- * @LastEditTime: 2022-07-28 21:11:19
+ * @LastEditTime: 2022-07-29 20:23:13
  * @FilePath: \vue-element-admin\README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -49,7 +49,7 @@ yarn run preview -- --report
 yarn run lint
 
 # 代码格式化检查并自动修复
-yarn run lint -- --fix
+yarn run lint --fix
 ```
 ## 附加说明
 ```bash

@@ -1,5 +1,10 @@
 <template>
-  <div v-if="isExternal" :style="styleExternalIcon" class="svg-external-icon svg-icon" v-on="$listeners" />
+  <div
+    v-if="isExternal"
+    :style="styleExternalIcon"
+    class="svg-external-icon svg-icon"
+    v-on="$listeners"
+  ></div>
   <svg v-else :class="svgClass" aria-hidden="true" v-on="$listeners">
     <use :xlink:href="iconName" />
   </svg>
@@ -37,7 +42,7 @@ export default {
     },
     styleExternalIcon() {
       return {
-        mask: `url(${this.iconClass}) no-repeat 50% 50%`,
+        'mask': `url(${this.iconClass}) no-repeat 50% 50%`,
         '-webkit-mask': `url(${this.iconClass}) no-repeat 50% 50%`
       }
     }
@@ -56,7 +61,7 @@ export default {
 
 .svg-external-icon {
   background-color: currentColor;
-  mask-size: cover!important;
+  mask-size: cover !important;
   display: inline-block;
 }
 </style>

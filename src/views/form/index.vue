@@ -1,3 +1,11 @@
+<!--
+ * @Author: liujun 18316880540@163.com
+ * @Date: 2022-07-16 18:16:27
+ * @LastEditors: liujun 18316880540@163.com
+ * @LastEditTime: 2022-07-29 20:22:09
+ * @FilePath: \vue-element-admin\src\views\form\index.vue
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <template>
   <div class="app-container">
     <el-form ref="form" :model="form" label-width="120px">
@@ -12,11 +20,21 @@
       </el-form-item>
       <el-form-item label="Activity time">
         <el-col :span="11">
-          <el-date-picker v-model="form.date1" type="date" placeholder="Pick a date" style="width: 100%;" />
+          <el-date-picker
+            v-model="form.date1"
+            type="date"
+            placeholder="Pick a date"
+            style="width: 100%;"
+          />
         </el-col>
         <el-col :span="2" class="line">-</el-col>
         <el-col :span="11">
-          <el-time-picker v-model="form.date2" type="fixed-time" placeholder="Pick a time" style="width: 100%;" />
+          <el-time-picker
+            v-model="form.date2"
+            type="fixed-time"
+            placeholder="Pick a time"
+            style="width: 100%;"
+          />
         </el-col>
       </el-form-item>
       <el-form-item label="Instant delivery">
@@ -78,8 +96,7 @@ export default {
 </script>
 
 <style scoped>
-.line{
+.line {
   text-align: center;
 }
 </style>
-
