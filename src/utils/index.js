@@ -109,3 +109,21 @@ export function param2Obj(url) {
   })
   return obj
 }
+
+/**
+ * 图片预览定位处理 把点击的图片移动到数据最前面 把指定index元素移动到最前面
+ * example array:[1,2,3,4,5] index:2 result:[3,4,5,1,2]
+ * @param index
+ * @param array
+ * @returns {*}
+ */
+export function arrayScrollIndexFirst(index, array) {
+  if (!index) {
+    return array
+  }
+  const length = array ? array.length : 0
+  if (length === 0 || length === 1 || index + 1 > length) {
+    return array
+  }
+  return array.slice(index).concat(array.slice(0, index))
+}

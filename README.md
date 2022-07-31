@@ -2,7 +2,7 @@
  * @Author: liujun 18316880540@163.com
  * @Date: 2022-07-16 18:16:27
  * @LastEditors: liujun 18316880540@163.com
- * @LastEditTime: 2022-07-29 20:23:13
+ * @LastEditTime: 2022-07-30 12:03:37
  * @FilePath: \vue-element-admin\README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -43,7 +43,7 @@ yarn run build:prod
 yarn run preview
 
 # 预览发布环境效果+静态资源分析
-yarn run preview -- --report
+yarn run preview --report
 
 # 代码格式化检查
 yarn run lint
@@ -60,9 +60,3 @@ yarn add -g plop
 # 自动新建项目模板（视图文件view、组件components、store）
 yarn run new
 ```
-
-## License
-
-[MIT](https://github.com/PanJiaChen/vue-admin-template/blob/master/LICENSE) license.
-
-Copyright (c) 2022-present liujunmm

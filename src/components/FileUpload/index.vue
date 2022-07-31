@@ -43,12 +43,6 @@
             <div>
               <span class="el-upload-list__item-preview">
                 <div v-if="getFileType(file.url) === 'image'" class="pi-rela">
-                  <el-image
-                    class="preview-img pi-w-22 pi-h-22 pi-mg-bottom-5"
-                    style="opacity: 0;position:absolute;top:50%;transform:translateY(-50%);z-index:2"
-                    :src="require('@/assets/logo.png')"
-                    :preview-src-list="getPrivewImages(file)"
-                  />
                   <i class="el-icon-zoom-in pi-fz-22 pi-white" style="z-index:1"></i>
                 </div>
                 <el-link v-else :href="file.url" :underline="false" target="_blank">
